@@ -47,7 +47,7 @@ module GateBackFace() {
     LongbeamRim() {
         Wall(
             points    = gate_front_face_points,
-            thickness = gate_front_face_thickness,
+            thickness = gate_back_face_thickness,
             angles    = gate_front_face_angles,
             offsets   = gate_front_face_offsets);
     }
