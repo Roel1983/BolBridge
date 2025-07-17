@@ -6,11 +6,11 @@ include <ShortbeamTopFace.inc>
 include <GateFrontFace.inc>
 include <TowerOuterFace.inc>
 include <TowerInnerFace.inc>
+include <TowerBase.inc>
+include <Spindle.inc>
 
-pair = 0; // [45]
-
-
-test_intersection() {
+//test_intersection() {
+    color("Teal")   TowerBaseRotLoc([0,1,2,3]) TowerBase();
     color("Purple") ShortbeamBottomFaceRotLoc([0,1]) ShortbeamBottomFace();
     color("Brown")  LongbeamBottomFaceRotLoc([0,1]) LongbeamBottomFace();
     color("pink")   LongbeamTopFaceRotLoc([0,1]) LongbeamTopFace();
@@ -20,7 +20,8 @@ test_intersection() {
     color("Red")    GateBackFaceRotLoc([0,1]) GateBackFace();
     color("Blue")   TowerOuterFaceRotLoc([0,1,2,3]) TowerOuterFace();
     color("Green")  TowerInnerFaceRotLoc([0,1,2,3]) TowerInnerFace();
-}
+    color("Gray")   SpindleRotLoc([0,1,2,3]) Spindle();
+//}
 
 module test_intersection() {
     total_pairs = ($children - 1) * $children / 2;
