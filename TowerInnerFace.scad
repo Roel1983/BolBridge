@@ -6,6 +6,7 @@ include <TowerInnerFace.inc>
 include <GateFrontFace.inc>
 include <ShortbeamTopFace.inc>
 include <ShortbeamBottomFace.inc>
+include <TowerSlideSlot.inc>
 
 TowerInnerFace();
 
@@ -29,13 +30,14 @@ tower_inner_face_offsets = [0 ,0,0, shortbeam_top_face_thickness, 0, 0, 0, short
 
 module TowerInnerFace() {
     
-    ShortbeamRim() {
-        Wall(
-            points    = tower_inner_face_points,
-            thickness = tower_inner_face_thickness,
-            angles    = tower_inner_face_angles,
-            offsets   = tower_inner_face_offsets);
-    }
+    TowerSlideSlotTowerInnerFace()
+    ShortbeamRim()
+    Wall(
+        points    = tower_inner_face_points,
+        thickness = tower_inner_face_thickness,
+        angles    = tower_inner_face_angles,
+        offsets   = tower_inner_face_offsets
+    );
     
     module ShortbeamRim() {
         difference() {
@@ -46,7 +48,10 @@ module TowerInnerFace() {
                 }
             }
             translate([0,0,-tower_inner_face_thickness-.1]) {
-                linear_extrude(tower_inner_face_shortbeam_rim+2) {
+                linear_extrude(
+                    tower_inner_face_shortbeam_rim+2,
+                    convexity = 2
+                ) {
                     offset(1) offset(-1 - .4*4) Shape();
                 }
             }
@@ -75,11 +80,11 @@ module TowerInnerFaceRotLoc(index = 0) {
         if (i == 0) {
             translate([ front_tower_inner, -side_tower_center]) rotate(-90) rotate(90, [1,0,0]) children();
         } else if (i == 1) {
-            translate([-front_tower_inner, -side_tower_center]) rotate( 90) rotate(90, [1,0,0]) children();
+            translate([-front_tower_inner, -side_tower_center]) rotate( 90) rotate(90, [1,0,0]) mirror() children();
         } else if (i == 2) {
             translate([-front_tower_inner,  side_tower_center]) rotate( 90) rotate(90, [1,0,0]) children();
         } else if (i == 3) {
-            translate([ front_tower_inner,  side_tower_center]) rotate(-90) rotate(90, [1,0,0]) children();
+            translate([ front_tower_inner,  side_tower_center]) rotate(-90) rotate(90, [1,0,0]) mirror() children();
         } else {
             echo(str("TowerInnerFaceRotLoc(", index, "). Invalid 'index'"));
         }
