@@ -80,11 +80,11 @@ module TowerInnerFaceRotLoc(index = 0) {
         if (i == 0) {
             translate([ front_tower_inner, -side_tower_center]) rotate(-90) rotate(90, [1,0,0]) children();
         } else if (i == 1) {
-            translate([-front_tower_inner, -side_tower_center]) rotate( 90) rotate(90, [1,0,0]) mirror() children();
+            translate([-front_tower_inner, -side_tower_center]) rotate( 90) rotate(90, [1,0,0]) mirror([1,0,0]) children();
         } else if (i == 2) {
             translate([-front_tower_inner,  side_tower_center]) rotate( 90) rotate(90, [1,0,0]) children();
         } else if (i == 3) {
-            translate([ front_tower_inner,  side_tower_center]) rotate(-90) rotate(90, [1,0,0]) mirror() children();
+            translate([ front_tower_inner,  side_tower_center]) rotate(-90) rotate(90, [1,0,0]) mirror([1,0,0]) children();
         } else {
             echo(str("TowerInnerFaceRotLoc(", index, "). Invalid 'index'"));
         }

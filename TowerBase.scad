@@ -4,12 +4,15 @@ include <TowerBase.inc>
 include <TowerOuterFace.inc>
 include <TowerInnerFace.inc>
 include <GateFrontFace.inc>
+include <TowerSlideSlot.inc>
 
 use <Utils.scad>
 
 tolerance       = 0.1;
 floor_thickness = 2.0;
 inner_tower_wall_thickness = 0.8;
+
+tower_base_inner_tower_height = tower_slide_slot_inner_top + 5.0;
 
 plinth_inner_width = [
     tower_size.x + tolerance,
@@ -31,7 +34,6 @@ tower_inner_wall_inner = [
     tower_size.y / 2 - tower_inner_face_thickness
 ];
 
-
 TowerBase();
 
 module TowerBaseRotLoc(index = 0) {
@@ -50,7 +52,8 @@ module TowerBaseRotLoc(index = 0) {
 }
 
 module TowerBase() {
-    Spindle() InnerTower() TowerHole() Base();
+    nut_wall     =  1.6;
+    WireHoles() NutHoleTowerBase() Spindle() InnerTower() TowerHole() Base();
     
     module Spindle() {
         bearing_diameter = 10.0;
@@ -99,25 +102,44 @@ module TowerBase() {
 
     module InnerTower() {
         chamfer = 2;
-        height  = 20;
         
         difference() {
             union() {
                 children();
-                linear_extrude(height_plinth_top + height) {
-                    offset(delta=chamfer, chamfer = true) offset(-chamfer) InnerTowerProfile();
-                }
+                Outer();
             }
             translate([0,0,floor_thickness]) {
-                linear_extrude(height_plinth_top + height) {
-                    offset(delta=chamfer - inner_tower_wall_thickness, chamfer = true) {
-                        offset(-chamfer) InnerTowerProfile();
-                    }
-                }
+                NutHoleInnerTowerInner()
+                TowerSlideSlotTowerBaseInnerTowerInner([
+                    tower_inner_wall_inner.x - inner_tower_wall_thickness,
+                    tower_inner_wall_inner.y - inner_tower_wall_thickness
+                ]) Inner();
             }
         }
+        
+        module Outer() {
+            linear_extrude(
+                tower_base_inner_tower_height
+            ) offset(
+                delta   = chamfer,
+                chamfer = true
+            ) offset(
+                delta   = -chamfer
+            ) Profile();
+        }
+        
+        module Inner() {
+            linear_extrude(
+                tower_base_inner_tower_height
+            ) offset(
+                delta   = chamfer - inner_tower_wall_thickness,
+                chamfer = true
+            ) offset(
+                delta   = -chamfer
+            ) Profile();
+        }
 
-        module InnerTowerProfile() {
+        module Profile() {
             polygon([
                 [
                     -tower_inner_wall_inner.x,
@@ -194,6 +216,64 @@ module TowerBase() {
                     height_plinth_top
                 ]
             ], [1, 0]));
+        }
+    }
+    module NutHoleInnerTowerInner() {
+        difference() {
+            children();
+            NutHoleLoc() {
+                linear_extrude(1.5 + 4) rotate(45) Hex(6 + 2 * nut_wall);
+            }
+        }
+    }
+    module NutHoleTowerBase() {
+        BIAS = 0.1;
+        hex_size = 6;
+        holde_d  = 5.2;
+        
+        difference() {
+            children();
+            NutHoleLoc() {
+                translate([0,0, 1.5]) {
+                    linear_extrude(4) rotate(45) Hex(hex_size);
+                    linear_extrude(4.15) {
+                        intersection() {
+                            square([holde_d, hex_size], true);
+                            rotate(45) Hex(hex_size);
+                        }
+                    }
+                }
+                translate([0,0,-BIAS]) cylinder(d = holde_d, h = 20, $fn = 64);
+            }
+        }
+    }
+    module NutHoleLoc() {
+        translate([4.5, 4.5]) {
+            children();
+        }
+    }
+    
+    module WireHoles() {
+        BIAS = 0.1;
+        d = 5;
+        difference() {
+            children();
+            mirror_copy([-1,1,0])Hole();
+        }
+        
+        module Hole() {
+            translate([0,0,-BIAS]) linear_extrude(10) {
+                hull() {
+                    translate([
+                        -(tower_inner_wall_inner.x - inner_tower_wall_thickness - d/2),
+                         (tower_inner_wall_inner.y - inner_tower_wall_thickness - d/2)
+                    ]) circle(d=d, $fn=64);
+                    translate([
+                         (tower_inner_wall_inner.x - inner_tower_wall_thickness - d/2 - 9),
+                         (tower_inner_wall_inner.y - inner_tower_wall_thickness - d/2)
+                    ]) circle(d=d, $fn=64);
+                }
+            }
         }
     }
 }

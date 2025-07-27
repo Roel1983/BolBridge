@@ -45,3 +45,8 @@ function copy_mirror_points(points, vec = [1, 0, 0]) =
     )
     // Step 3: Concatenate the original points with the reversed and mirrored points
     concat(points, reversed_mirrored_points);
+
+module Hex(d) {
+    intersection_for(a = [0, 120, 240]) rotate(a) square([d * 2, d], true);
+}
+        

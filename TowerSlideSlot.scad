@@ -4,30 +4,11 @@ use <Utils.scad>
 include <TowerSlideSlot.inc>
 include <GateFrontFace.inc>
 include <TowerInnerFace.inc>
-include <TowerInnerFace.inc>
-
-tower_slide_slot_wall_thickness  = tower_inner_face_thickness;
-tower_slide_slot_inner_bottom    = 15.0;
-tower_slide_slot_inner_top       = 40.0;
-tower_slide_slot_inner_width     =  2 * 0.4 + 2 * 0.25;
-tower_slide_slot_wall_height     = 1.0;
-
-tower_slide_slot_outer_bottom    = tower_slide_slot_inner_bottom
-                                 - tower_slide_slot_wall_thickness;
-tower_slide_slot_outer_top       = tower_slide_slot_inner_top
-                                 + tower_slide_slot_wall_thickness;
-tower_slide_slot_outer_innerside = front_tower_inner;
-tower_slide_slot_inner_innerside = tower_slide_slot_outer_innerside
-                                 + tower_slide_slot_wall_thickness;
-tower_slide_slot_center          = tower_slide_slot_inner_innerside
-                                 + tower_slide_slot_inner_width / 2;
-tower_slide_slot_inner_outerside = tower_slide_slot_inner_innerside
-                                 + tower_slide_slot_inner_width;
-tower_slide_slot_outer_outerside = tower_slide_slot_inner_outerside
-                                 + tower_slide_slot_wall_thickness;
+include <TowerBase.inc>
 
 //GateBackFace();
-TowerInnerFace();
+//TowerInnerFace();
+//TowerBase();
  
 module TowerSlideSlotGateBackFace() {
     difference() {
@@ -83,4 +64,45 @@ module TowerSlideSlotTowerInnerFace() {
         ]);
     }
     
+}
+module TowerSlideSlotTowerBaseInnerTowerInner(tower_inner_wall_inner) {
+    width = 2.0;
+    difference() {
+        union() {
+            children();
+            Gap();
+        }
+        RotLoc() 
+        rotate(-90, [1,0,0])
+        mirror_copy([0,0,1])
+        translate([0, 0, tower_slide_slot_inner_length / 2])
+        linear_extrude(.5) square(width, true);
+        
+    }
+    
+    module Gap() {
+        RotLoc() {
+            translate([0,0,-width]) linear_extrude(3 * width)
+            square(
+                [
+                    width,
+                    tower_slide_slot_inner_length
+                ],
+                center = true
+            );
+        }
+    }
+    
+    module RotLoc() {
+        translate([
+            -tower_inner_wall_inner.x,
+            -tower_inner_wall_inner.y,
+            (tower_slide_slot_inner_top 
+             + tower_slide_slot_inner_bottom) / 2
+        ]) {
+            rotate(-45, [0, 0, 1]) rotate(90, [1, 0, 0]) {
+                children();
+            }
+        }
+    }
 }
