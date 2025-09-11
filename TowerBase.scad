@@ -8,30 +8,32 @@ include <TowerSlideSlot.inc>
 
 use <Utils.scad>
 
-tolerance       = 0.1;
-floor_thickness = 2.0;
+tolerance_wall_outer = 0.05;
+tolerance_wall_inner = 0.05;
+floor_thickness      = 2.0;
 inner_tower_wall_thickness = 0.8;
 
 tower_base_inner_tower_height = tower_slide_slot_inner_top + 5.0;
 
 plinth_inner_width = [
-    tower_size.x + tolerance,
-    tower_size.y + tolerance
+    tower_size.x + tolerance_wall_outer,
+    tower_size.y + tolerance_wall_outer
 ];
 plinth_outer_width = [
     plinth_inner_width.x + tower_base_plinth_thickness,
-    plinth_inner_width.y + tower_base_plinth_thickness];
+    plinth_inner_width.y + tower_base_plinth_thickness
+];
 
 height_plate_top    = tower_base_plate_feet[1]
                     + tower_base_plate_thickness;
 height_plinth_top   = height_plate_top + tower_base_plinth_height;
 tower_outer_wall_inner = [
-    tower_size.x / 2 - gate_front_face_thickness,
-    tower_size.y / 2 - tower_outer_face_thickness
+    tower_size.x / 2 - gate_front_face_thickness  - tolerance_wall_inner,
+    tower_size.y / 2 - tower_outer_face_thickness - tolerance_wall_inner
 ];
 tower_inner_wall_inner = [
-    tower_size.x / 2 - gate_back_face_thickness,
-    tower_size.y / 2 - tower_inner_face_thickness
+    tower_size.x / 2 - gate_back_face_thickness   - tolerance_wall_inner,
+    tower_size.y / 2 - tower_inner_face_thickness - tolerance_wall_inner
 ];
 
 TowerBase();
@@ -162,7 +164,7 @@ module TowerBase() {
         difference() {
             children();
             translate([0, 0, height_tower_bottom]) {
-                linear_extrude(3.0) square([tower_size.x, tower_size.y], center=true);
+                linear_extrude(3.0) square(plinth_inner_width, center=true);
             }
         }
     }
