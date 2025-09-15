@@ -1,9 +1,9 @@
-include <Config.inc>
-use <Utils.scad>
+include <../../Config.inc>
+use <../Utils/Utils.scad>
 
 include <TowerSlideSlot.inc>
 include <GateFrontFace.inc>
-include <TowerInnerFace.inc>
+include <TowerInnerSideWall.inc>
 include <TowerBase.inc>
 
 //GateBackFace();

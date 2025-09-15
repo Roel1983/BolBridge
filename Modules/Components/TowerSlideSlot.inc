@@ -1,5 +1,5 @@
-include <Config.inc>
-include <TowerInnerFace.inc>
+include <../../Config.inc>
+include <TowerInnerSideWall.inc>
 
 use <TowerSlideSlot.scad>
 

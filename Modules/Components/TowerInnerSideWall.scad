@@ -1,8 +1,8 @@
-include <Config.inc>
-use     <Wall.scad>
-use     <Utils.scad>
+include <../../Config.inc>
+use     <../Utils/Wall.scad>
+use     <../Utils/Utils.scad>
 
-include <TowerInnerFace.inc>
+include <TowerInnerSideWall.inc>
 include <GateFrontFace.inc>
 include <ShortbeamTopFace.inc>
 include <ShortbeamBottomFace.inc>
@@ -27,6 +27,26 @@ tower_inner_face_points = [
 
 tower_inner_face_angles = [-45,0,0,0,-45, tower_roof_angle, -45, 0, 0, 0, -45];
 tower_inner_face_offsets = [0 ,0,0, shortbeam_top_face_thickness, 0, 0, 0, shortbeam_top_face_thickness];
+
+module TowerInnerFace_Left_LocRot_Portal() {
+    translate([-front_tower_inner, 0]) {
+        rotate(-90) {
+            rotate(90, [1,0,0]) {
+                children();
+            }
+        }
+    }
+}
+
+module TowerInnerFace_Right_LocRot_Portal() {
+    translate([front_tower_inner, 0]) {
+        rotate(-90) {
+            rotate(90, [1,0,0]) {
+                children();
+            }
+        }
+    }
+}
 
 module TowerInnerFace() {
     

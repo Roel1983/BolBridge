@@ -1,6 +1,6 @@
-include <Config.inc>
-use     <Wall.scad>
-use     <Utils.scad>
+include <../../Config.inc>
+use     <../Utils/Wall.scad>
+use     <../Utils/Utils.scad>
 
 include <LongbeamInnerFace.inc>
 include <LongbeamTopFace.inc>

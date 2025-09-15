@@ -1,4 +1,4 @@
-include <Config.inc>
+include <../../Config.inc>
 
 include <Spindle.inc>
 

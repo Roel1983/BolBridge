@@ -1,5 +1,5 @@
-include <Config.inc>
-use     <Wall.scad>
+include <../../Config.inc>
+use     <../Utils/Wall.scad>
 
 include <LongbeamBottomFace.inc>
 

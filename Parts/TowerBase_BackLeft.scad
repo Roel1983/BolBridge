@@ -1,0 +1,16 @@
+include <../Config.inc>
+include <../Modules/Components/TowerBase.inc>
+
+include <TowerBase_BackLeft.inc>
+
+TowerBase_BackLeft();
+
+module TowerBase_BackLeft_LocRot_Portal() {
+    translate([tower_distance.x / 2, 0]) {
+        children();
+    }
+}
+
+module TowerBase_BackLeft() {
+    rotate(180) mirror([1,1]) TowerBase();
+}

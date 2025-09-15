@@ -1,9 +1,9 @@
-include <Config.inc>
-use     <Wall.scad>
-use     <Utils.scad>
+include <../../Config.inc>
+use     <../Utils/Wall.scad>
+use     <../Utils/Utils.scad>
 
 include <ShortbeamTopFace.inc>
-include <TowerInnerFace.inc>
+include <TowerInnerSideWall.inc>
 include <GateFrontFace.inc>
 
 ShortbeamTopFace();

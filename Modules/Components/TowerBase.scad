@@ -1,12 +1,12 @@
-include <Config.inc>
+include <../../Config.inc>
 
 include <TowerBase.inc>
-include <TowerOuterFace.inc>
-include <TowerInnerFace.inc>
+include <TowerOuterSideWall.inc>
+include <TowerInnerSideWall.inc>
 include <GateFrontFace.inc>
 include <TowerSlideSlot.inc>
 
-use <Utils.scad>
+use <../Utils/Utils.scad>
 
 tolerance_wall_outer = 0.05;
 tolerance_wall_inner = 0.05;
@@ -38,7 +38,20 @@ tower_inner_wall_inner = [
 
 TowerBase();
 
-module TowerBaseRotLoc(index = 0) {
+module TowerBase_Left_LocRot_Portal() {
+    translate([-tower_distance.x / 2, 0]) {
+        children();
+    }
+}
+
+module TowerBase_Right_LocRot_Portal() {
+    translate([tower_distance.x / 2, 0]) {
+        children();
+    }
+}
+
+
+module TowerBaseRotLoc(index = 0) { // TODO Remove
     
     for(i = is_num(index)?[index]:is_list(index)?index:[]) {
         if (i == 0) {
