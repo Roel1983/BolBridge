@@ -7,6 +7,8 @@ use <../../Parts/TowerOuterSideWall_FrontLeft.scad>
 use <../../Parts/TowerOuterSideWall_FrontRight.scad>
 use <../../Parts/TowerInnerSideWall_FrontLeft.scad>
 use <../../Parts/TowerInnerSideWall_FrontRight.scad>
+use <../../Parts/PortalBeamTop_Front.scad>
+use <../../Parts/PortalBeamBottom_Front.scad>
 
 include <Portal_Front.inc>
 
@@ -25,4 +27,6 @@ module Portal_Front() {
     TowerOuterSideWall_FrontRight_LocRot_Portal() TowerOuterSideWall_FrontRight();
     TowerInnerSideWall_FrontLeft_LocRot_Portal()  TowerInnerSideWall_FrontLeft();
     TowerInnerSideWall_FrontRight_LocRot_Portal() TowerInnerSideWall_FrontRight();
+    PortalBeamTop_Front_LocRot_Portal()           PortalBeamTop_Front();
+    PortalBeamBottom_Front_LocRot_Portal()        PortalBeamBottom_Front();
 }
