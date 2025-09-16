@@ -1,7 +1,5 @@
 include <../Modules/Components/PortalInnerWall.inc>
 
-include <PortalInnerWall_Front.inc>
-
 PortalInnerWall_Front();
 
 module PortalInnerWall_Front_LocRot_Portal() {

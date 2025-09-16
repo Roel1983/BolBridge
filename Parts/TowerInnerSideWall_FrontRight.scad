@@ -1,8 +1,6 @@
 include <../Config.inc>
 include <../Modules/Components/TowerInnerSideWall.inc>
 
-include <TowerInnerSideWall_FrontRight.inc>
-
 TowerInnerSideWall_FrontRight_LocRot_Portal() TowerInnerSideWall_FrontRight();
 
 module TowerInnerSideWall_FrontRight_LocRot_Portal() {

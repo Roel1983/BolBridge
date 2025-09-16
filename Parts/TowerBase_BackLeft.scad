@@ -1,8 +1,6 @@
 include <../Config.inc>
 include <../Modules/Components/TowerBase.inc>
 
-include <TowerBase_BackLeft.inc>
-
 TowerBase_BackLeft();
 
 module TowerBase_BackLeft_LocRot_Portal() {

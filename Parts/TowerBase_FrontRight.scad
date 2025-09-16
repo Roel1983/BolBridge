@@ -1,8 +1,6 @@
 include <../Config.inc>
 include <../Modules/Components/TowerBase.inc>
 
-include <TowerBase_FrontRight.inc>
-
 TowerBase_FrontRight();
 
 module TowerBase_FrontRight_LocRot_Portal() {

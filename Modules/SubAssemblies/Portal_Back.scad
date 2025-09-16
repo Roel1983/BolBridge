@@ -1,13 +1,12 @@
 include <../../Config.inc>
-include <../../Parts/PortalInnerWall_Back.inc>
-include <../../Parts/PortalOuterWall_Back.inc>
-include <../../Parts/TowerBase_BackLeft.inc>
-include <../../Parts/TowerBase_BackRight.inc>
-include <../../Parts/TowerOuterSideWall_BackLeft.inc>
-include <../../Parts/TowerOuterSideWall_BackRight.inc>
-include <../../Parts/TowerInnerSideWall_BackLeft.inc>
-include <../../Parts/TowerInnerSideWall_BackRight.inc>
-
+use <../../Parts/PortalInnerWall_Back.scad>
+use <../../Parts/PortalOuterWall_Back.scad>
+use <../../Parts/TowerBase_BackLeft.scad>
+use <../../Parts/TowerBase_BackRight.scad>
+use <../../Parts/TowerOuterSideWall_BackLeft.scad>
+use <../../Parts/TowerOuterSideWall_BackRight.scad>
+use <../../Parts/TowerInnerSideWall_BackLeft.scad>
+use <../../Parts/TowerInnerSideWall_BackRight.scad>
 
 include <Portal_Back.inc>
 
