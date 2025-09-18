@@ -1,0 +1,22 @@
+include <../Config.inc>
+include <../Modules/Components/LongbeamInnerFace.inc>
+
+TrussOuterWall_Left();
+
+module TrussOuterWall_Left_LocRot_Portal() {
+    translate([
+        tower_size.x / 2,
+        0,
+        -longbeam_height / 2
+    ]) {
+        rotate(90) {
+            rotate(90, [1,0,0]) {
+                children();
+            }
+        }
+    }
+}
+
+module TrussOuterWall_Left() {
+    LongbeamInnerFace(); // TODO rename
+}
