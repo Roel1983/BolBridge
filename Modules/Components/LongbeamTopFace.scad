@@ -47,15 +47,3 @@ module LongbeamTopFace() {
         }
     }
 }
-
-module LongbeamTopFaceRotLoc(index = 0) {
-    for(i = is_num(index)?[index]:is_list(index)?index:[]) {
-        if (i == 0) {
-            translate([front_tower_center, 0, height_longbeam_top]) rotate(-90) rotate(180, [0,1,0]) children();
-        } else if (i == 1) {
-            translate([-front_tower_center, 0, height_longbeam_top]) rotate( 90) rotate(180, [0,1,0]) children();
-        } else {
-            echo(str("LongbeamTopFaceRotLoc(", index, "). Invalid 'index'"));
-        }
-    }
-}

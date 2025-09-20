@@ -28,26 +28,6 @@ tower_inner_face_points = [
 tower_inner_face_angles = [-45,0,0,0,-45, tower_roof_angle, -45, 0, 0, 0, -45];
 tower_inner_face_offsets = [0 ,0,0, shortbeam_top_face_thickness, 0, 0, 0, shortbeam_top_face_thickness];
 
-module TowerInnerFace_Left_LocRot_Portal() {
-    translate([-front_tower_inner, 0]) {
-        rotate(-90) {
-            rotate(90, [1,0,0]) {
-                children();
-            }
-        }
-    }
-}
-
-module TowerInnerFace_Right_LocRot_Portal() {
-    translate([front_tower_inner, 0]) {
-        rotate(-90) {
-            rotate(90, [1,0,0]) {
-                children();
-            }
-        }
-    }
-}
-
 module TowerInnerFace() {
     
     TowerSlideSlotTowerInnerFace()
@@ -92,21 +72,6 @@ module TowerInnerFace() {
                     height_shortbeam_bottom + shortbeam_bottom_face_thickness
                 ]
             ]);
-        }
-    }
-}
-module TowerInnerFaceRotLoc(index = 0) {
-    for(i = is_num(index)?[index]:is_list(index)?index:[]) {
-        if (i == 0) {
-            translate([ front_tower_inner, -side_tower_center]) rotate(-90) rotate(90, [1,0,0]) children();
-        } else if (i == 1) {
-            translate([-front_tower_inner, -side_tower_center]) rotate( 90) rotate(90, [1,0,0]) mirror([1,0,0]) children();
-        } else if (i == 2) {
-            translate([-front_tower_inner,  side_tower_center]) rotate( 90) rotate(90, [1,0,0]) children();
-        } else if (i == 3) {
-            translate([ front_tower_inner,  side_tower_center]) rotate(-90) rotate(90, [1,0,0]) mirror([1,0,0]) children();
-        } else {
-            echo(str("TowerInnerFaceRotLoc(", index, "). Invalid 'index'"));
         }
     }
 }

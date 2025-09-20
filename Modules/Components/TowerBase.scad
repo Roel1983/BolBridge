@@ -38,34 +38,6 @@ tower_inner_wall_inner = [
 
 TowerBase();
 
-module TowerBase_Left_LocRot_Portal() {
-    translate([-tower_distance.x / 2, 0]) {
-        children();
-    }
-}
-
-module TowerBase_Right_LocRot_Portal() {
-    translate([tower_distance.x / 2, 0]) {
-        children();
-    }
-}
-
-
-module TowerBaseRotLoc(index = 0) { // TODO Remove
-    
-    for(i = is_num(index)?[index]:is_list(index)?index:[]) {
-        if (i == 0) {
-            translate([front_tower_center,side_tower_center]) children();
-        } else if (i == 1) {
-            translate([-front_tower_center,side_tower_center]) children();
-        } else if (i == 2) {
-            translate([front_tower_center,-side_tower_center]) children();
-        } else if (i == 3) {
-            translate([-front_tower_center,-side_tower_center]) children();
-        }
-    }
-}
-
 module TowerBase() {
     nut_wall     =  1.6;
     WireHoles() NutHoleTowerBase() Spindle() InnerTower() TowerHole() Base();

@@ -11,14 +11,6 @@ include <PortalCommon.inc>
 
 PortalInnerWall();
 
-module PortalInnerWall_LocRot_Portal() {
-    translate([0, -tower_size.y / 2]) {
-        rotate(90, [1,0,0]) {
-            children();
-        }
-    }
-}
-
 module PortalInnerWall() {
     TowerSlideSlotGateBackFace() // TODO rename to TowerSlideSlot_PortalInnerWall
     LongbeamRim()

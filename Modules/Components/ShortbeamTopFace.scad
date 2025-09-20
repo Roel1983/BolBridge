@@ -48,15 +48,3 @@ module ShortbeamTopFace() {
         }
     }    
 }
-
-module ShortbeamTopFaceRotLoc(index = 0) {
-    for(i = is_num(index)?[index]:is_list(index)?index:[]) {
-        if (i == 0) {
-            translate([0, -side_tower_center, height_shortbeam_top]) rotate(180, [1,0]) children();
-        } else if (i == 1) {
-            translate([0,  side_tower_center, height_shortbeam_top]) rotate(180, [1,0]) rotate(180) children();
-        } else {
-            echo(str("ShortbeamBottomFaceRotLoc(", index, "). Invalid 'index'"));
-        }
-    }
-}

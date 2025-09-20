@@ -32,18 +32,6 @@ module GateFrontFace() {
         offsets   = gate_front_face_offsets);
 }
 
-module GateFrontFaceRotLoc(index = 0) {
-    for(i = is_num(index)?[index]:is_list(index)?index:[]) {
-        if (i == 0) {
-            translate([0, -side_tower_outer]) rotate(  0) rotate(90, [1,0,0]) children();
-        } else if (i == 1) {
-            translate([0,  side_tower_outer]) rotate(180) rotate(90, [1,0,0]) children();
-        } else {
-            echo(str("GateFrontFaceRotLoc(", index, "). Invalid 'index'"));
-        }
-    }
-}
-
 module GateBackFace() {
     TowerSlideSlotGateBackFace()
     LongbeamRim()
@@ -83,18 +71,6 @@ module GateBackFace() {
                     height_longbeam_bottom + longbeam_bottom_face_thickness
                 ]
             ]);
-        }
-    }
-}
-
-module GateBackFaceRotLoc(index = 0) {
-    for(i = is_num(index)?[index]:is_list(index)?index:[]) {
-        if (i == 0) {
-            translate([0, -side_tower_inner]) rotate(180) rotate(90, [1,0,0]) children();
-        } else if (i == 1) {
-            translate([0,  side_tower_inner]) rotate(  0) rotate(90, [1,0,0]) children();
-        } else {
-            echo(str("GateInnerFrontFaceRotLoc(", index, "). Invalid 'index'"));
         }
     }
 }

@@ -20,19 +20,3 @@ module TowerOuterFace() {
         thickness = tower_outer_face_thickness,
         angles    = tower_outer_face_angles);
 }
-
-module TowerOuterFaceRotLoc(index = 0) {
-    for(i = is_num(index)?[index]:is_list(index)?index:[]) {
-        if (i == 0) {
-            translate([ front_tower_outer, -side_tower_center]) rotate( 90) rotate(90, [1,0,0]) children();
-        } else if (i == 1) {
-            translate([-front_tower_outer, -side_tower_center]) rotate(-90) rotate(90, [1,0,0]) children();
-        } else if (i == 2) {
-            translate([-front_tower_outer,  side_tower_center]) rotate(-90) rotate(90, [1,0,0]) children();
-        } else if (i == 3) {
-            translate([ front_tower_outer,  side_tower_center]) rotate( 90) rotate(90, [1,0,0]) children();
-        } else {
-            echo(str("TowerOuterFaceRotLoc(", index, "). Invalid 'index'"));
-        }
-    }
-}
