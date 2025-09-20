@@ -15,7 +15,10 @@ include <Portal_Back.inc>
 Portal_Back();
 
 module Portal_Back_LocRot_BridgeFrame() {
-    translate([0, -tower_distance.y / 2]) rotate(180) children();
+    translate([
+        0,
+        -tower_distance.y / 2 - explode * 2
+    ]) rotate(180) children();
 }
 
 module Portal_Back() {

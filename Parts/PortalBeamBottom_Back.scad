@@ -4,7 +4,11 @@ include <../Modules/Components/ShortbeamBottomFace.inc>
 PortalBeamBottom_Back();
 
 module PortalBeamBottom_Back_LocRot_Portal() {
-    translate([0, 0, height_shortbeam_bottom]) {
+    translate([
+        0,
+        0,
+        height_shortbeam_bottom - explode
+    ]) {
         rotate(180, [1,0]) {
             children();
         }

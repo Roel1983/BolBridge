@@ -37,3 +37,5 @@ side_tower_inner         = (tower_distance.y - tower_size.y) / 2;
 side_tower_center        = tower_distance.y / 2;
 side_tower_outer         = (tower_distance.y + tower_size.y) / 2;
 side_spindle_center      = side_tower_inner + spindle_center_to_outer_wall;
+
+explode = $t * 10;

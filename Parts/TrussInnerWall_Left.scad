@@ -1,11 +1,11 @@
 include <../Config.inc>
 include <../Modules/Components/LongbeamInnerFace.inc>
 
-TrussInnerWall_Left_LocRot_Portal() TrussInnerWall_Left();
+TrussInnerWall_Left();
 
 module TrussInnerWall_Left_LocRot_Portal() {
     translate([
-        -tower_size.x / 2,
+        -tower_size.x / 2 - explode,
         0,
         -longbeam_height / 2
     ]) {

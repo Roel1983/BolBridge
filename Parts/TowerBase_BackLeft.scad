@@ -4,7 +4,11 @@ include <../Modules/Components/TowerBase.inc>
 TowerBase_BackLeft();
 
 module TowerBase_BackLeft_LocRot_Portal() {
-    translate([tower_distance.x / 2, 0]) {
+    translate([
+        tower_distance.x / 2 + explode / 2,
+        0,
+        -explode
+    ]) {
         children();
     }
 }

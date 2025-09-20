@@ -5,7 +5,7 @@ TrussOuterWall_Left();
 
 module TrussOuterWall_Left_LocRot_Portal() {
     translate([
-        tower_size.x / 2,
+        tower_size.x / 2 + explode,
         0,
         -longbeam_height / 2
     ]) {

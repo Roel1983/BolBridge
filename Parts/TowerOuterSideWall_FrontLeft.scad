@@ -4,7 +4,10 @@ include <../Modules/Components/TowerOuterSideWall.inc>
 TowerOuterSideWall_FrontLeft();
 
 module TowerOuterSideWall_FrontLeft_LocRot_Portal() {
-    translate([-front_tower_outer, 0]) { // TODO
+    translate([
+        -front_tower_outer - explode,
+        0
+    ]) {
         rotate(-90) {
             rotate(90, [1,0,0]) {
                 children();
