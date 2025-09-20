@@ -6,9 +6,9 @@ include <GateFrontFace.inc>
 include <TowerInnerSideWall.inc>
 include <TowerBase.inc>
 
-//GateBackFace();
-//TowerInnerFace();
-//TowerBase();
+GateBackFace();
+TowerInnerFace();
+TowerBase();
  
 module TowerSlideSlotGateBackFace() {
     difference() {
@@ -30,7 +30,7 @@ module TowerSlideSlotGateBackFace() {
         mirror_copy(
             [1,0,0]
         ) translate([
-            tower_slide_slot_outer_innerside - bias,
+            front_tower_inner - bias,
             tower_slide_slot_inner_bottom,
             - gate_back_face_thickness - bias
         ]) linear_extrude(
@@ -39,7 +39,7 @@ module TowerSlideSlotGateBackFace() {
             + 2 * bias
         ) square([
             tower_slide_slot_inner_outerside
-            - tower_slide_slot_outer_innerside + bias,
+            - front_tower_inner + bias,
             tower_slide_slot_inner_top
             - tower_slide_slot_inner_bottom
         ]);
@@ -52,6 +52,18 @@ module TowerSlideSlotTowerInnerFace() {
         translate([
             side_tower_inner - side_tower_center
             -tower_slide_slot_wall_height,
+            tower_slide_slot_inner_bottom,
+            -tower_inner_face_thickness
+        ]) linear_extrude(
+            tower_slide_slot_wall_thickness
+        ) square([
+            tower_slide_slot_wall_height
+            + tower_inner_face_thickness * 1.1,
+            tower_slide_slot_inner_top
+            - tower_slide_slot_inner_bottom
+        ]);
+        translate([
+            side_tower_inner - side_tower_center,
             tower_slide_slot_inner_bottom,
             -tower_inner_face_thickness
         ]) linear_extrude(
