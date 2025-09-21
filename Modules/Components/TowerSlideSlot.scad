@@ -6,9 +6,9 @@ include <GateFrontFace.inc>
 include <TowerInnerSideWall.inc>
 include <TowerBase.inc>
 
-GateBackFace();
-TowerInnerFace();
-TowerBase();
+//GateBackFace();
+//TowerInnerFace();
+//TowerBase();
  
 module TowerSlideSlotGateBackFace() {
     difference() {
