@@ -52,6 +52,7 @@ module LiftArm() {
         translate([0, 0, lift_arm_bottom_thickness]) {
             rotate(15) NutHole();
         }
+        cylinder(d=5.2, h=3, center=true, $fn = 32);
     }
     
     module Base() {
