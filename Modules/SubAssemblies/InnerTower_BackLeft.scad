@@ -1,0 +1,20 @@
+include <../../Config.inc>
+use <../../Parts/TowerBase_BackLeft.scad>
+
+include <InnerTower_BackLeft.inc>
+
+InnerTower_BackLeft();
+
+module InnerTower_BackLeft_LocRot_Portal() {
+    translate([
+        tower_distance.x / 2 + explode / 2,
+        0,
+        -explode
+    ]) {
+        children();
+    }
+}
+
+module InnerTower_BackLeft() {
+    TowerBase_BackLeft_LocRot_InnerTower() TowerBase_BackLeft();
+}

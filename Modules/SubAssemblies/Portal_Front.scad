@@ -1,14 +1,15 @@
 include <../../Config.inc>
 use <../../Parts/PortalInnerWall_Front.scad>
 use <../../Parts/PortalOuterWall_Front.scad>
-use <../../Parts/TowerBase_FrontLeft.scad>
-use <../../Parts/TowerBase_FrontRight.scad>
 use <../../Parts/TowerOuterSideWall_FrontLeft.scad>
 use <../../Parts/TowerOuterSideWall_FrontRight.scad>
 use <../../Parts/TowerInnerSideWall_FrontLeft.scad>
 use <../../Parts/TowerInnerSideWall_FrontRight.scad>
 use <../../Parts/PortalBeamTop_Front.scad>
 use <../../Parts/PortalBeamBottom_Front.scad>
+
+include <InnerTower_FrontLeft.inc>
+include <InnerTower_FrontRight.inc>
 
 include <Portal_Front.inc>
 
@@ -22,10 +23,11 @@ module Portal_Front_LocRot_BridgeFrame() {
 }
 
 module Portal_Front() {
+    InnerTower_FrontLeft_LocRot_Portal()          InnerTower_FrontLeft();
+    InnerTower_FrontRight_LocRot_Portal()         InnerTower_FrontRight();
+    
     PortalInnerWall_Front_LocRot_Portal()         PortalInnerWall_Front();
     PortalOuterWall_Front_LocRot_Portal()         PortalOuterWall_Front();
-    TowerBase_FrontLeft_LocRot_Portal()           TowerBase_FrontLeft();
-    TowerBase_FrontRight_LocRot_Portal()          TowerBase_FrontRight();
     TowerOuterSideWall_FrontLeft_LocRot_Portal()  TowerOuterSideWall_FrontLeft();
     TowerOuterSideWall_FrontRight_LocRot_Portal() TowerOuterSideWall_FrontRight();
     TowerInnerSideWall_FrontLeft_LocRot_Portal()  TowerInnerSideWall_FrontLeft();
