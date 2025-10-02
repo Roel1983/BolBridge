@@ -5,16 +5,24 @@ include <TowerOuterSideWall.inc>
 include <TowerInnerSideWall.inc>
 include <GateFrontFace.inc>
 include <TowerSlideSlot.inc>
+include <LiftArm.inc>
 
 use <../Utils/Utils.scad>
 use <../Utils/HexNut.scad>
+
+tower_base_nut_height    =  4.0;
+tower_base_spring_height = 10.0;
 
 tolerance_wall_outer = 0.05;
 tolerance_wall_inner = 0.05;
 floor_thickness      = 2.0;
 inner_tower_wall_thickness = 0.8;
 
-tower_base_inner_tower_height = tower_slide_slot_inner_top + 15.0 + .5;
+tower_base_inner_tower_height = tower_slide_slot_inner_top
+                              + lift_arm_l_top
+                              + 2 * tower_base_nut_height
+                              + tower_base_spring_height
+                              + base_tower_top_screw_inset;
 
 plinth_inner_width = [
     tower_size.x + tolerance_wall_outer,
@@ -45,9 +53,9 @@ module TowerBase() {
     WireHoles() NutHoleTowerBase() Spindle() InnerTower() TowerHole() Base();
     
     module Spindle() {
-        bearing_diameter = 10.0;
-        bearing_height   =  4.0;
-        bearing_floor_thickness = 1.0;
+        bearing_diameter        = base_tower_bearing_diameter;
+        bearing_height          = base_tower_bearing_height;
+        bearing_floor_thickness = base_tower_bearing_floor_thickness;
         bearing_wall     =  1.6;
         bearing_top_rim_height = 1.0;
         difference() {
@@ -105,8 +113,11 @@ module TowerBase() {
             TopScrewHoles_Subtractive();
         }
         
+        top_screw_holes_pos_z = tower_base_inner_tower_height 
+                              - 15 - base_tower_top_screw_inset;
+        
         module TopScrewHoles_Additive() {
-            translate([0, 0, tower_slide_slot_inner_top]) {
+            translate([0, 0, top_screw_holes_pos_z]) {
                 mirror_copy([-1,1]) {
                     Balcony();
                 }
@@ -134,7 +145,7 @@ module TowerBase() {
         }
         
         module TopScrewHoles_Subtractive() {
-            translate([0, 0, tower_slide_slot_inner_top]) {
+            translate([0, 0, top_screw_holes_pos_z]) {
                 mirror_copy([-1,1]) {
                     HexNutHole();
                 }

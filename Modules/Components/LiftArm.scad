@@ -3,6 +3,8 @@ include <TowerSlideSlot.inc>
 include <TowerBase.inc>
 include <../SubAssemblies/Portal_Back.inc>
 
+include <LiftArm.inc>
+
 part = "part"; // "part", "end-situation", "fit"
 
 if(part == "end-situation") {
@@ -45,13 +47,13 @@ module LiftArm() {
             Base();
             Arm();
         }
-        translate([0, 0, .5]) {
+        translate([0, 0, lift_arm_bottom_thickness]) {
             rotate(15) NutHole();
         }
     }
     
     module Base() {
-        linear_extrude(16) {
+        linear_extrude(lift_arm_base_height) {
             offset(r=0.2) {
                 hull() {
                     rotate(15) offset(0.6, $fn=32) Hex(7.0);
@@ -61,7 +63,7 @@ module LiftArm() {
     }
     
     module Arm() {
-        linear_extrude(5) {
+        translate([0, 0, lift_arm_l_bottom]) linear_extrude(lift_arm_height) {
             offset(r=0.2) {
                 hull() {
                     rotate(15) offset(0.6, $fn=32) Hex(7.0);
@@ -100,7 +102,7 @@ module LiftArm() {
     }
     
     module NutHole() {
-        linear_extrude(15) Hex(d = 7.0);
-        linear_extrude(20) Hex(d = 6.95);
+        linear_extrude(lift_arm_nut_height) Hex(d = 7.0);
+        linear_extrude(lift_arm_nut_height + 2) Hex(d = 6.95);
     }
 }

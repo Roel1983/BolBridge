@@ -1,10 +1,10 @@
-tower_size               = [ 20.0,  20.0, 100.0];
-tower_distance           = [100.0, 200.0];
-tower_roof_angle         = 10.0;
-height_beam_top          = 95.0;
-shortbeam_height         = 30.0;
-longbeam_height          = 20.0;
-tower_roof_overhang      =  1.0;
+tower_size               = [ 20.0,  20.0, 110.0];
+tower_distance           = [140.0, 320.0];
+tower_roof_angle         =  10.0;
+height_beam_top          = 105.0;
+shortbeam_height         =  30.0;
+longbeam_height          =  20.0;
+tower_roof_overhang      =   1.0;
 
 tower_base_plinth_thickness = 0.8;
 tower_base_plinth_height    = 3.0;

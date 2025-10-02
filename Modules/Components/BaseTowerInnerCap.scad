@@ -69,9 +69,9 @@ module BaseTowerInnerCap() {
         linear_extrude(1) {
             offset(-tolerance_snug) TowerBaseInnerProfileInner();
         }
-        translate([0, 0, .5]) {
+        translate([0, 0, base_tower_top_screw_inset]) {
             
-            linear_extrude(5 - .5) {
+            linear_extrude(5 - base_tower_top_screw_inset) {
                 offset(.5) TowerBaseInnerProfileInner();
             }
         }
