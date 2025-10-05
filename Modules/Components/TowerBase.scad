@@ -72,7 +72,7 @@ module TowerBase() {
             SpindleLoc() {
                 bias = 0.1;
                 bottom_rim = 1.0;
-                top_rim    = 0.2;
+                top_rim    = 0.1;
                 
                 translate([0, 0, bearing_floor_thickness]) cylinder(
                     d = bearing_diameter,
