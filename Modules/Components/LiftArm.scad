@@ -5,7 +5,9 @@ include <../SubAssemblies/Portal_Back.inc>
 
 include <LiftArm.inc>
 
-part = "part"; // "part", "end-situation", "fit"
+part = "part"; 
+//part = "end-situation";
+//part = "fit";
 
 if(part == "end-situation") {
     translate([

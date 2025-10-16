@@ -6,7 +6,7 @@ use <TowerSlideSlot.scad>
 tower_slide_slot_wall_thickness  =  0.4;
 tower_slide_slot_inner_bottom    = 15.0;
 tower_slide_slot_inner_top       = 50.0;
-tower_slide_slot_inner_width     =  2 * 0.4 + 2 * 0.25;
+tower_slide_slot_inner_width     =  2 * 0.4 + 2 * 0.1;
 tower_slide_slot_wall_height     = 1.0;
 tower_slide_slot_inner_length    = (tower_slide_slot_inner_top 
                                  - tower_slide_slot_inner_bottom);
