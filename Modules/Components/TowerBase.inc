@@ -8,8 +8,8 @@ base_tower_top_screw_location = [
     tower_slide_slot_inner_top + 15
 ];
 
-base_tower_bearing_diameter        = 10.0;
-base_tower_bearing_height          =  4.0;
+base_tower_bearing_diameter        = bearing_10x4_diameter;
+base_tower_bearing_height          = bearing_10x4_height;
 base_tower_bearing_floor_thickness =  1.0;
 
 base_tower_top_screw_inset         = 0.5;

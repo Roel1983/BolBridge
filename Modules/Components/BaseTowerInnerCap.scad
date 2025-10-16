@@ -4,8 +4,8 @@ use <../Utils/Utils.scad>
 
 $fn = 64; 
 
-bearing_diameter = 10.0;
-bearing_height   =  4.0;
+bearing_diameter = bearing_10x4_diameter;
+bearing_height   = bearing_10x4_height;
 
 BaseTowerInnerCap();
 

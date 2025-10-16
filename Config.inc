@@ -14,6 +14,9 @@ tower_base_plate_feet       = [4.0, 1.0];
 tower_base_plate_overhang   = 0.2;
 tower_base_plate_overhang_angle = 45;
 
+bearing_10x4_diameter       = 10.05;
+bearing_10x4_height         =  4.0;
+
 spindle_center_to_outer_wall = 7.0;
 
 height_shortbeam_top     = height_beam_top;
