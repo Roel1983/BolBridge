@@ -1,5 +1,6 @@
 include <../../Config.inc>
 use <../../Parts/TowerBase_BackLeft.scad>
+use <../../Parts/BaseTowerInnerCap_BackLeft.scad>
 
 include <InnerTower_BackLeft.inc>
 
@@ -17,4 +18,5 @@ module InnerTower_BackLeft_LocRot_Portal() {
 
 module InnerTower_BackLeft() {
     TowerBase_BackLeft_LocRot_InnerTower() TowerBase_BackLeft();
+    BaseTowerInnerCap_BackLeft_LocRot_InnerTower() BaseTowerInnerCap_BackLeft();
 }

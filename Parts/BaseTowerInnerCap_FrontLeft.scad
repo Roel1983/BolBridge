@@ -3,9 +3,9 @@ include <../Modules/Components/BaseTowerInnerCap.inc>
 include <../Modules/Components/TowerBase.inc>
 use     <../Modules/Components/TowerBase.scad>
 
-BaseTowerInnerCap_BackRight();
+BaseTowerInnerCap_FrontLeft();
 
-module BaseTowerInnerCap_BackRight_LocRot_InnerTower() {
+module BaseTowerInnerCap_FrontLeft_LocRot_InnerTower() {
     translate([
         0,0,
         tower_base_inner_tower_height()
@@ -19,7 +19,7 @@ module BaseTowerInnerCap_BackRight_LocRot_InnerTower() {
     }
 }
 
-module BaseTowerInnerCap_BackRight() {
+module BaseTowerInnerCap_FrontLeft() {
     translate([0, 0, base_tower_inner_cap_height]) {
         mirror([0,0,1]) BaseTowerInnerCap();
     }

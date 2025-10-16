@@ -18,7 +18,7 @@ tolerance_wall_inner = 0.05;
 floor_thickness      = 2.0;
 inner_tower_wall_thickness = 0.8;
 
-tower_base_inner_tower_height = tower_slide_slot_inner_top
+function tower_base_inner_tower_height() = tower_slide_slot_inner_top
                               + lift_arm_l_top
                               + 2 * tower_base_nut_height
                               + tower_base_spring_height
@@ -95,7 +95,7 @@ module TowerBase() {
             union() {
                 children();
                 linear_extrude(
-                    tower_base_inner_tower_height
+                    tower_base_inner_tower_height()
                 ) TowerBaseInnerProfileOuter();
             }
             difference() {
@@ -105,7 +105,7 @@ module TowerBase() {
                         tower_inner_wall_inner.x - inner_tower_wall_thickness,
                         tower_inner_wall_inner.y - inner_tower_wall_thickness
                     ]) linear_extrude(
-                        tower_base_inner_tower_height
+                        tower_base_inner_tower_height()
                     ) TowerBaseInnerProfileInner();
                 }
                 TopScrewHoles_Additive();
@@ -113,7 +113,7 @@ module TowerBase() {
             TopScrewHoles_Subtractive();
         }
         
-        top_screw_holes_pos_z = tower_base_inner_tower_height 
+        top_screw_holes_pos_z = tower_base_inner_tower_height()
                               - 15 - base_tower_top_screw_inset;
         
         module TopScrewHoles_Additive() {

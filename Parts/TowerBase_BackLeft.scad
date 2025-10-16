@@ -8,5 +8,5 @@ module TowerBase_BackLeft_LocRot_InnerTower() {
 }
 
 module TowerBase_BackLeft() {
-    rotate(180) mirror([1,1]) TowerBase();
+    rotate(180) mirror([1,0]) mirror([0,1]) TowerBase();
 }
