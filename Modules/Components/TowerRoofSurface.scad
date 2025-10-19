@@ -18,7 +18,7 @@ module TowerRoofSurface() {
         [roof_size.x,  roof_size.y / 2]
     ];
     
-    translate([0, 0, towerRoofSurface_thickness]) {
+    rotate(180, [1,0,0]) {
         Wall(
             points    = points,
             thickness = towerRoofSurface_thickness,
