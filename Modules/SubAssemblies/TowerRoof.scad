@@ -2,6 +2,7 @@ include <../../Config.inc>
 
 use <../../Parts/TowerRoofSurface_Inner.scad>
 use <../../Parts/TowerRoofSurface_Outer.scad>
+use <../../Parts/TowerRoofInnerBlock.scad>
 
 include <TowerRoof.inc>
 
@@ -30,4 +31,5 @@ module TowerRoof_Left_LocRot_Portal() {
 module TowerRoof() {
     TowerRoofSurface_Inner_LocRot_TowerRoof() TowerRoofSurface_Inner();
     TowerRoofSurface_Outer_LocRot_TowerRoof() TowerRoofSurface_Outer();
+    TowerRoofInnerBlock_LocRot_TowerRoof()    TowerRoofInnerBlock();
 }
