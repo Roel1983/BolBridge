@@ -1,8 +1,10 @@
 include <../../Config.inc>
+use     <../Utils/Utils.scad>
 
 include <TowerOuterSideWall.inc>
 include <TowerInnerSideWall.inc>
 include <PortalCommon.inc>
+include <TowerRoofSurface.inc>
 
 include <TowerRoofInnerBlock.inc>
 
@@ -16,15 +18,28 @@ module TowerRoofInnerBlock() {
     
     y_size = tower_size.y - 2 * (portal_wall_thickness + towerRoofInnerBlock_tolerance);
     
-    rotate(90, [1, 0, 0]) {
-        linear_extrude(y_size, center = true) {
-            polygon([
-                [x_from, 0],
-                [x_from, towerRoofInnerBlock_topHeight - abs(x_from) * tan(tower_roof_angle)],
-                [0, towerRoofInnerBlock_topHeight],
-                [x_to, towerRoofInnerBlock_topHeight - abs(x_to) * tan(tower_roof_angle)],
-                [x_to, 0]
-            ]);
+    difference(){
+        Block();
+        translate([0, 0, towerRoofInnerBlock_topHeight]) {
+            mirror_copy([1, 0, 0]) {
+                TowerRoofSurface_Slots(offset_r = .05, offset_x = 0.1, offset_z = 0.2);
+            }
+        }
+    }
+        
+    module Block() {
+        rotate(90, [1, 0, 0]) {
+            linear_extrude(y_size, center = true) {
+                polygon([
+                    [x_from, 0],
+                    [x_from, towerRoofInnerBlock_topHeight 
+                     - abs(x_from) * tan(tower_roof_angle)],
+                    [0, towerRoofInnerBlock_topHeight],
+                    [x_to, towerRoofInnerBlock_topHeight 
+                     - abs(x_to) * tan(tower_roof_angle)],
+                    [x_to, 0]
+                ]);
+            }
         }
     }
 }
