@@ -66,7 +66,9 @@ module LiftArm() {
     }
     
     module Arm() {
-        translate([0, 0, lift_arm_l_bottom]) linear_extrude(lift_arm_height) {
+        translate([0, 0, lift_arm_l_bottom]) linear_extrude(
+            lift_arm_height, convexity=2
+        ) {
             offset(r=0.2) {
                 hull() {
                     rotate(15) offset(0.6, $fn=32) Hex(7.0);

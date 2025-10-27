@@ -41,4 +41,8 @@ side_tower_center        = tower_distance.y / 2;
 side_tower_outer         = (tower_distance.y + tower_size.y) / 2;
 side_spindle_center      = side_tower_inner + spindle_center_to_outer_wall;
 
-explode = $t * 10;
+animate_explode = false;
+animate_lift    = true;
+
+explode  = ($t * 10) * (animate_explode?1:0);
+position = abs((($t * 20) + 10 % 20) - 10);

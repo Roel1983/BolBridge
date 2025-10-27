@@ -1,6 +1,7 @@
 include <../../Config.inc>
 use <../../Parts/TowerBase_FrontRight.scad>
 use <../../Parts/BaseTowerInnerCap_FrontRight.scad>
+use <../../Parts/LiftArm_FrontRight.scad>
 
 include <InnerTower_FrontRight.inc>
 
@@ -19,4 +20,5 @@ module InnerTower_FrontRight_LocRot_Portal() {
 module InnerTower_FrontRight() {
     TowerBase_FrontRight_LocRot_InnerTower() TowerBase_FrontRight();
     BaseTowerInnerCap_FrontRight_LocRot_InnerTower() BaseTowerInnerCap_FrontRight();
+    LiftArm_FrontRight_LocRot_InnerTower()           LiftArm_FrontRight();
 }
