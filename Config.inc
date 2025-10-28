@@ -6,6 +6,9 @@ shortbeam_height         =  30.0;
 longbeam_height          =  20.0;
 tower_roof_overhang      =   1.0;
 
+beam_roof_thickness      = 0.5;
+beam_roof_overhang       = 1.0;
+
 tower_base_plinth_thickness = 0.8;
 tower_base_plinth_height    = 3.0;
 tower_base_plate_size       = [30, 30];
