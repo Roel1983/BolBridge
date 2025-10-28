@@ -1,5 +1,6 @@
 include <../Config.inc>
 include <../Modules/Components/PortalInnerWall.inc>
+include <../Modules/Components/PortalWindow.inc>
 
 PortalInnerWall_Front();
 
@@ -15,5 +16,6 @@ module PortalInnerWall_Front_LocRot_Portal() {
 }
 
 module PortalInnerWall_Front() {
+    PortalWindow()
     PortalInnerWall();
 }
