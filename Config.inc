@@ -1,7 +1,6 @@
 tower_size               = [ 20.0,  20.0, 110.0];
 tower_distance           = [140.0, 320.0];
 tower_roof_angle         =  10.0;
-height_beam_top          = 105.0;
 shortbeam_height         =  30.0;
 longbeam_height          =  20.0;
 tower_roof_overhang      =   1.0;
@@ -22,10 +21,10 @@ bearing_10x4_height         =  4.0;
 
 spindle_center_to_outer_wall = 7.0;
 
-height_shortbeam_top     = height_beam_top;
-height_shortbeam_bottom  = height_beam_top - shortbeam_height;
-height_longbeam_top      = height_beam_top;
-height_longbeam_bottom   = height_beam_top - longbeam_height;
+height_shortbeam_top     = 105.0;
+height_shortbeam_bottom  = height_shortbeam_top - shortbeam_height;
+height_longbeam_top      = 107.0;
+height_longbeam_bottom   = height_longbeam_top - longbeam_height;
 height_tower_side_top    = tower_size.z;
 height_tower_center_top  = tower_size.z
                          + tan(tower_roof_angle)

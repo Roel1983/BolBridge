@@ -11,7 +11,7 @@ module Truss_Left_LocRot_BridgeFrame() {
     translate([
         tower_distance.x / 2 + explode / 2,
         0,
-        height_beam_top - longbeam_height / 2
+        height_longbeam_top - longbeam_height / 2
     ]) {
         children();
     }
