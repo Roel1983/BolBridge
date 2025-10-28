@@ -101,10 +101,13 @@ module TowerBase() {
             difference() {
                 translate([0,0,floor_thickness]) {
                     NutHoleInnerTowerInner()
+                    translate([0,0,-floor_thickness])
                     TowerSlideSlotTowerBaseInnerTowerInner([
                         tower_inner_wall_inner.x - inner_tower_wall_thickness,
                         tower_inner_wall_inner.y - inner_tower_wall_thickness
-                    ]) linear_extrude(
+                    ])
+                    translate([0,0,floor_thickness])
+                    linear_extrude(
                         tower_base_inner_tower_height()
                     ) TowerBaseInnerProfileInner();
                 }

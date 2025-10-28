@@ -45,4 +45,4 @@ animate_explode = false;
 animate_lift    = true;
 
 explode  = ($t * 10) * (animate_explode?1:0);
-position = abs((($t * 20) + 10 % 20) - 10);
+position = abs(((($t * 2) + 1) % 2) - 1) * (animate_lift?1:0);
