@@ -21,6 +21,7 @@ module LongbeamTopFace() {
         thickness  = longbeam_top_face_thickness,
         glue_crack = longbeam_top_face_glue_crack);
     Rim();
+    Overhang();
     
     module Rim() {
         linear_extrude(2) difference() {
@@ -44,6 +45,20 @@ module LongbeamTopFace() {
                     front_tower_inner - front_tower_center + longbeam_inner_face_thickness + tolerance
                 ],
             ]);
+        }
+    }
+    
+    module Overhang() {
+        assert(beam_roof_thickness <= longbeam_top_face_thickness);
+        linear_extrude(beam_roof_thickness) {
+            polygon(
+                longbeam_top_face_points + [
+                    [0, beam_roof_overhang],
+                    [0, beam_roof_overhang],
+                    [0, -beam_roof_overhang],
+                    [0, -beam_roof_overhang]
+                ]
+            );
         }
     }
 }
