@@ -1,5 +1,5 @@
 include <../Config.inc>
-include <../Modules/Components/LongbeamInnerFace.inc>
+include <../Modules/Components/LongbeamOuterFace.inc>
 
 TrussOuterWall_Right();
 
@@ -19,6 +19,6 @@ module TrussOuterWall_Right_LocRot_Portal() {
 
 module TrussOuterWall_Right() {
     mirror([1, 0, 0]) {
-        LongbeamInnerFace(); // TODO rename
+        LongbeamOuterFace(); // TODO rename
     }
 }
