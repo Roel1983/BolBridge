@@ -4,6 +4,7 @@ use     <../Utils/Wall.scad>
 include <LongbeamTopFace.inc>
 include <GateFrontFace.inc>
 include <LongbeamInnerFace.inc>
+include <LongbeamOuterFace.inc>
 
 LongbeamTopFace();
 
@@ -39,10 +40,10 @@ module LongbeamTopFace() {
                     front_tower_outer - front_tower_center - longbeam_inner_face_thickness - tolerance
                 ], [
                     -side_tower_inner + gate_front_face_longbeam_rim + tolerance,
-                    front_tower_inner - front_tower_center + longbeam_inner_face_thickness + tolerance
+                    front_tower_inner - front_tower_center + longbeam_inner_face_thickness + tolerance + longbeam_outer_face_indent
                 ], [
                     side_tower_inner - gate_front_face_longbeam_rim - tolerance,
-                    front_tower_inner - front_tower_center + longbeam_inner_face_thickness + tolerance
+                    front_tower_inner - front_tower_center + longbeam_inner_face_thickness + tolerance + longbeam_outer_face_indent
                 ],
             ]);
         }

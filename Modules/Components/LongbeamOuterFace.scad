@@ -13,7 +13,7 @@ longbeam_outer_face_points = [
     [-side_tower_inner, height_longbeam_bottom - height_longbeam_bottom],
     [ side_tower_inner, height_longbeam_bottom - height_longbeam_bottom],
 ];
-longbeam_outer_face_angles    = [0, 0, -35, 0];
+longbeam_outer_face_angles    = [0, 0, -45, 0];
 longbeam_outer_face_offsets   = [-longbeam_top_face_thickness];
 
 module LongbeamOuterFace() {
@@ -25,3 +25,5 @@ module LongbeamOuterFace() {
             offsets   = longbeam_outer_face_offsets);
     }
 }
+
+//TODO add ribs with a height of longbeam_outer_face_indent
