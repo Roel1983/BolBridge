@@ -12,6 +12,6 @@ module Catwalk_TrussBottom_Right() {
         beam_to    =  side_tower_inner,
         beam_bottom_face_thickness = longbeam_bottom_face_thickness,
         catwalk_to_offset = 12,
-        support_count = 9
+        support_count = 22
     );
 }
