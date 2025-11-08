@@ -1,4 +1,4 @@
-tower_size               = [ 20.0,  20.0, 110.0];
+tower_size               = [ 23.3,  23.3, 110.0];
 tower_distance           = [140.0, 320.0];
 tower_roof_angle         =  10.0;
 shortbeam_height         =  30.0;
