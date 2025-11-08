@@ -7,10 +7,10 @@ include <LongbeamBottomFace.inc>
 LongbeamBottomFace();
 
 longbeam_bottom_face_points = [
-    [ side_tower_inner, front_tower_outer - front_tower_center - longbeam_outer_face_indent],
-    [-side_tower_inner, front_tower_outer - front_tower_center - longbeam_outer_face_indent],
-    [-side_tower_inner, front_tower_inner - front_tower_center], 
-    [ side_tower_inner, front_tower_inner - front_tower_center],
+    [ side_tower_inner, longbeam_outer - longbeam_center - longbeam_outer_face_indent],
+    [-side_tower_inner, longbeam_outer - longbeam_center - longbeam_outer_face_indent],
+    [-side_tower_inner, longbeam_inner - longbeam_center], 
+    [ side_tower_inner, longbeam_inner - longbeam_center],
 ];
 longbeam_bottom_face_angles = [-45, 0, -55];
 

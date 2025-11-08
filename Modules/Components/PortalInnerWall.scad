@@ -33,16 +33,16 @@ module PortalInnerWall() {
         module Shape() {
             polygon([
                 [
-                    front_tower_inner      + longbeam_inner_face_thickness,
+                    longbeam_inner      + longbeam_inner_face_thickness,
                     height_longbeam_bottom + longbeam_bottom_face_thickness
                 ], [
-                    front_tower_inner      + longbeam_inner_face_thickness,
+                    longbeam_inner      + longbeam_inner_face_thickness,
                     height_longbeam_top    - longbeam_top_face_thickness
                 ], [
-                    front_tower_outer      - longbeam_inner_face_thickness,
+                    longbeam_outer      - longbeam_inner_face_thickness,
                     height_longbeam_top    - longbeam_top_face_thickness
                 ], [
-                    front_tower_outer      - longbeam_inner_face_thickness,
+                    longbeam_outer      - longbeam_inner_face_thickness,
                     height_longbeam_bottom + longbeam_bottom_face_thickness
                 ]
             ]);

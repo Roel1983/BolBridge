@@ -9,10 +9,10 @@ include <LongbeamOuterFace.inc>
 LongbeamTopFace();
 
 longbeam_top_face_points = [
-    [ side_tower_inner, front_tower_outer - front_tower_center],
-    [-side_tower_inner, front_tower_outer - front_tower_center],
-    [-side_tower_inner, front_tower_inner - front_tower_center], 
-    [ side_tower_inner, front_tower_inner - front_tower_center],
+    [ side_tower_inner, longbeam_outer - longbeam_center],
+    [-side_tower_inner, longbeam_outer - longbeam_center],
+    [-side_tower_inner, longbeam_inner - longbeam_center], 
+    [ side_tower_inner, longbeam_inner - longbeam_center],
 ];
 longbeam_top_face_glue_crack = [0, 0.1, 0, 0.1];
 
@@ -34,16 +34,16 @@ module LongbeamTopFace() {
             polygon([
                 [
                     side_tower_inner - gate_front_face_longbeam_rim - tolerance,
-                    front_tower_outer - front_tower_center - longbeam_inner_face_thickness - tolerance
+                    longbeam_outer - longbeam_center - longbeam_inner_face_thickness - tolerance
                 ], [
                     -side_tower_inner + gate_front_face_longbeam_rim + tolerance,
-                    front_tower_outer - front_tower_center - longbeam_inner_face_thickness - tolerance
+                    longbeam_outer - longbeam_center - longbeam_inner_face_thickness - tolerance
                 ], [
                     -side_tower_inner + gate_front_face_longbeam_rim + tolerance,
-                    front_tower_inner - front_tower_center + longbeam_inner_face_thickness + tolerance + longbeam_outer_face_indent
+                    longbeam_inner - longbeam_center + longbeam_inner_face_thickness + tolerance + longbeam_outer_face_indent
                 ], [
                     side_tower_inner - gate_front_face_longbeam_rim - tolerance,
-                    front_tower_inner - front_tower_center + longbeam_inner_face_thickness + tolerance + longbeam_outer_face_indent
+                    longbeam_inner - longbeam_center + longbeam_inner_face_thickness + tolerance + longbeam_outer_face_indent
                 ],
             ]);
         }

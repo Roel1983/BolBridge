@@ -2,6 +2,7 @@ tower_size               = [ 23.3,  23.3, 110.0];
 tower_distance           = [140.0, 320.0];
 tower_roof_angle         =  10.0;
 shortbeam_height         =  30.0;
+longbeam_width           =  20.0;
 longbeam_height          =  20.0;
 tower_roof_overhang      =   1.0;
 
@@ -37,6 +38,10 @@ front_tower_inner        = (tower_distance.x - tower_size.x) / 2;
 front_tower_center       = tower_distance.x / 2;
 front_tower_outer        = (tower_distance.x + tower_size.x) / 2;
 front_spindle_center     = front_tower_inner + spindle_center_to_outer_wall;
+
+longbeam_inner           = (tower_distance.x - longbeam_width) / 2;
+longbeam_center          = tower_distance.x / 2;
+longbeam_outer           = (tower_distance.x + longbeam_width) / 2;
 
 side_tower_inner         = (tower_distance.y - tower_size.y) / 2;
 side_tower_center        = tower_distance.y / 2;
