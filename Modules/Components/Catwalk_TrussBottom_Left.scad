@@ -11,6 +11,6 @@ module Catwalk_TrussBottom_Left() {
         beam_from  = -side_tower_inner,
         beam_to    =  side_tower_inner,
         beam_bottom_face_thickness = longbeam_bottom_face_thickness,
-        support_count = 9
+        support_count = 22
     );
 }
