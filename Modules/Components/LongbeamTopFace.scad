@@ -40,10 +40,10 @@ module LongbeamTopFace() {
                     longbeam_outer - longbeam_center - longbeam_inner_face_thickness - tolerance
                 ], [
                     -side_tower_inner + gate_front_face_longbeam_rim + tolerance,
-                    longbeam_inner - longbeam_center + longbeam_inner_face_thickness + tolerance + longbeam_outer_face_indent
+                    longbeam_inner - longbeam_center + longbeam_outer_face_thickness + tolerance + longbeam_outer_face_indent
                 ], [
                     side_tower_inner - gate_front_face_longbeam_rim - tolerance,
-                    longbeam_inner - longbeam_center + longbeam_inner_face_thickness + tolerance + longbeam_outer_face_indent
+                    longbeam_inner - longbeam_center + longbeam_outer_face_thickness + tolerance + longbeam_outer_face_indent
                 ],
             ]);
         }
