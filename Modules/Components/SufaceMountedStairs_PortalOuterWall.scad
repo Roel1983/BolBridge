@@ -11,7 +11,7 @@ SufaceMountedStairs_PortalOuterWall();
 module SufaceMountedStairs_PortalOuterWall() {
     translate([front_tower_center - 4.0 , 0, portal_wall_thickness]) {
         for(y=[
-            step_distance:
+            step_distance * 1.5:
             step_distance:
             (height_shortbeam_bottom + height_shortbeam_top)/2
         ]) translate([0, y]) {
