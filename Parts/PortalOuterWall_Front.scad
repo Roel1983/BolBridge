@@ -1,6 +1,7 @@
 include <../Config.inc>
 include <../Modules/Components/PortalOuterWall.inc>
 include <../Modules/Components/PortalWindow.inc>
+include <../Modules/Components/SufaceMountedStairs_PortalOuterWall.inc>
 
 PortalOuterWall_Front();
 
@@ -20,4 +21,5 @@ module PortalOuterWall_Front_LocRot_Portal() {
 module PortalOuterWall_Front() {
     PortalWindow()
     PortalOuterWall();
+    SufaceMountedStairs_PortalOuterWall();
 }

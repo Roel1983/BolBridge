@@ -2,6 +2,7 @@ include <../../Config.inc>
 use <../Utils/Bar.scad>
 use <../Utils/Utils.scad>
 include <LongbeamBottomFace.inc>
+include <Catwalk.inc>
 
 Catwalk(
     beam_inner = -10,
@@ -23,10 +24,6 @@ module Catwalk(
     support_count,
     support_every_odd
 ) {
-    catwalk_floor_gap       =  1.0;
-    catwalk_floor_width     = 10.0;
-    catwalk_floor_thickness = 0.5;
-    
     beam_len   = beam_to - beam_from;
     
     catwalk_outer  = beam_inner - catwalk_floor_gap;

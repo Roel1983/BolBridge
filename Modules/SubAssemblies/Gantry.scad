@@ -1,13 +1,13 @@
-include <ShortbeamBottomFace.inc>
-include <LongbeamBottomFace.inc>
-include <LongbeamTopFace.inc>
-include <LongbeamInnerFace.inc>
-include <ShortbeamTopFace.inc>
-include <GateFrontFace.inc>
-include <TowerOuterFace.inc>
-include <TowerInnerFace.inc>
-include <TowerBase.inc>
-include <Spindle.inc>
+include <../Components/ShortbeamBottomFace.inc>
+include <../Components/LongbeamBottomFace.inc>
+include <../Components/LongbeamTopFace.inc>
+include <../Components/LongbeamInnerFace.inc>
+include <../Components/ShortbeamTopFace.inc>
+include <../Components/GateFrontFace.inc>
+include <../Components/TowerOuterFace.inc>
+include <../Components/TowerInnerFace.inc>
+include <../Components/TowerBase.inc>
+include <../Components/Spindle.inc>
 
 //test_intersection() {
     color("Teal")   TowerBaseRotLoc([0,1,2,3]) TowerBase();

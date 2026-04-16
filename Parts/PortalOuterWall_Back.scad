@@ -19,5 +19,4 @@ module PortalOuterWall_Back_LocRot_Portal() {
 
 module PortalOuterWall_Back() {
     PortalOuterWall();
-    SufaceMountedStairs_PortalOuterWall();
 }
