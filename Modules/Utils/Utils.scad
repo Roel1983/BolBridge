@@ -49,4 +49,6 @@ function copy_mirror_points(points, vec = [1, 0, 0]) =
 module Hex(d) {
     intersection_for(a = [0, 120, 240]) rotate(a) square([d * 2, d], true);
 }
-        
+
+function getNum(arg, i) = is_list(arg)?arg[i % len(arg)]:arg;
+function range(from, to) = [for (i = [from : (from < to ? 1 : -1): to]) i ];

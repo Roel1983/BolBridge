@@ -1,3 +1,3 @@
 use <ShortbeamBottomFace.scad>
 
-shortbeam_bottom_face_thickness = 1.0;
+shortbeam_bottom_face_thickness = 0.5;

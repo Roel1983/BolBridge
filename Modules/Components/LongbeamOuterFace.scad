@@ -48,10 +48,10 @@ module LongbeamOuterFace() {
                     height_longbeam_bottom - height_longbeam_bottom
                 ], [
                     -rib_width/2,
-                    height_longbeam_top - height_longbeam_bottom
+                    height_longbeam_top - height_longbeam_bottom - longbeam_top_face_thickness
                 ], [
                     rib_width/2,
-                    height_longbeam_top - height_longbeam_bottom
+                    height_longbeam_top - height_longbeam_bottom - longbeam_top_face_thickness
                 ], [
                     rib_width/2,
                     height_longbeam_bottom - height_longbeam_bottom

@@ -25,25 +25,31 @@ module LongbeamTopFace() {
     Overhang();
     
     module Rim() {
-        linear_extrude(2) difference() {
-            offset(delta=3, chamfer =true) offset(-3) Shape();
-            offset(delta=3-.4*4, chamfer =true) offset(-3) Shape();
+        linear_extrude(longbeam_top_inner_rim_width) difference() {
+            offset(delta=3, chamfer =true) offset(-3) Shape(longbeam_top_inner_rim_ridge.x);
+            offset(delta=3-.4*4, chamfer =true) offset(-3) Shape(longbeam_top_inner_rim_ridge.x);
         }
-        module Shape() {
+        translate([0,0,longbeam_top_inner_rim_width - longbeam_top_inner_rim_ridge.y]) {
+            linear_extrude(longbeam_top_inner_rim_ridge.y) difference() {
+                offset(delta=3, chamfer =true) offset(-3) Shape();
+                offset(delta=3-.4*4, chamfer =true) offset(-3) Shape();
+            }
+        }
+        module Shape(d = 0) {
             tolerance = .1;
             polygon([
                 [
                     side_tower_inner - gate_front_face_longbeam_rim - tolerance,
-                    longbeam_outer - longbeam_center - longbeam_inner_face_thickness - tolerance
+                    longbeam_outer - longbeam_center - longbeam_inner_face_thickness - tolerance - d
                 ], [
                     -side_tower_inner + gate_front_face_longbeam_rim + tolerance,
-                    longbeam_outer - longbeam_center - longbeam_inner_face_thickness - tolerance
+                    longbeam_outer - longbeam_center - longbeam_inner_face_thickness - tolerance - d
                 ], [
                     -side_tower_inner + gate_front_face_longbeam_rim + tolerance,
-                    longbeam_inner - longbeam_center + longbeam_outer_face_thickness + tolerance + longbeam_outer_face_indent
+                    longbeam_inner - longbeam_center + longbeam_outer_face_thickness + tolerance + longbeam_outer_face_indent + d
                 ], [
                     side_tower_inner - gate_front_face_longbeam_rim - tolerance,
-                    longbeam_inner - longbeam_center + longbeam_outer_face_thickness + tolerance + longbeam_outer_face_indent
+                    longbeam_inner - longbeam_center + longbeam_outer_face_thickness + tolerance + longbeam_outer_face_indent + d
                 ],
             ]);
         }

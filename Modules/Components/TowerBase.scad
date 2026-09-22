@@ -112,6 +112,7 @@ module TowerBase() {
                     ) TowerBaseInnerProfileInner();
                 }
                 TopScrewHoles_Additive();
+                Conduit();
             }
             TopScrewHoles_Subtractive();
         }
@@ -212,6 +213,18 @@ module TowerBase() {
                 }
             }
         }
+        
+        module Conduit() {
+            rotate(-45) {
+                mirror_copy([1, 0]) {
+                    translate([tower_inner_wall_inner.x, 0, 20]) {
+                        linear_extrude(tower_base_inner_tower_height() - 20 - 30) {
+                            square([0.8, tower_inner_wall_inner.x], true);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     module TowerHole() {
@@ -278,21 +291,21 @@ module TowerBase() {
         difference() {
             children();
             NutHoleLoc() {
-                linear_extrude(1.5 + 4) rotate(45) Hex(6 + 2 * nut_wall);
+                linear_extrude(1.5 + 4) rotate(45) Hex(7 + 2 * nut_wall);
             }
         }
     }
     module NutHoleTowerBase() {
         BIAS = 0.1;
-        hex_size = 6;
-        holde_d  = 5.2;
+        hex_size = 7.1;
+        holde_d  = 4.5;
         
         difference() {
             children();
             NutHoleLoc() {
-                translate([0,0, 1.5]) {
-                    linear_extrude(4) rotate(45) Hex(hex_size);
-                    linear_extrude(4.15) {
+                translate([0,0, 2.0]) {
+                    linear_extrude(3.2) rotate(45) Hex(hex_size);
+                    linear_extrude(3.25) {
                         intersection() {
                             square([holde_d, hex_size], true);
                             rotate(45) Hex(hex_size);
@@ -325,7 +338,7 @@ module TowerBase() {
                          (tower_inner_wall_inner.y - inner_tower_wall_thickness - d/2)
                     ]) circle(d=d, $fn=64);
                     translate([
-                         (tower_inner_wall_inner.x - inner_tower_wall_thickness - d/2 - 9),
+                         (tower_inner_wall_inner.x - inner_tower_wall_thickness - d/2 - 10),
                          (tower_inner_wall_inner.y - inner_tower_wall_thickness - d/2)
                     ]) circle(d=d, $fn=64);
                 }

@@ -1,6 +1,7 @@
 include <../../Config.inc>
 use <../Utils/Bar.scad>
 use <../Utils/Utils.scad>
+use <../Utils/Bar.scad>
 include <LongbeamBottomFace.inc>
 include <Catwalk.inc>
 
@@ -10,7 +11,8 @@ Catwalk(
     beam_from  = -100,
     beam_to    =  100,
     beam_bottom_face_thickness = 1,
-    support_count = 22
+    support_count = 22,
+    style = "thin-beam"
 );
 
 module Catwalk(
@@ -22,7 +24,8 @@ module Catwalk(
     catwalk_from_offset = 0,
     catwalk_to_offset   = 0,
     support_count,
-    support_every_odd
+    support_every_odd,
+    style = "thin-beam"
 ) {
     beam_len   = beam_to - beam_from;
     
@@ -60,28 +63,49 @@ module Catwalk(
         Distribute() Support();
     
         module Support() {
-            width  = 1.5;
-            height = 1.5;
-            thickness = 0.4;
             
-            rotate(-90, [0, 1, 0]) {
-                linear_extrude(thickness, center=true) {
+            if (style == "thin-beam") {
+                ThinBeam();
+            } else {
+                ThickBeam();
+            }
+            
+            module ThinBeam() {
+                width  = 1.5;
+                height = 1.5;
+                thickness = 0.4;
+                
+                rotate(-90, [0, 1, 0]) {
+                    linear_extrude(thickness, center=true) {
+                        polygon([
+                            [0, support_from],
+                            [thickness, support_from],
+                            [height, support_from - height],
+                            [height, support_to],
+                            [0, support_to]
+                        ]);
+                    }
+                }
+                linear_extrude(0.4) {
                     polygon([
-                        [0, support_from],
-                        [thickness, support_from],
-                        [height, support_from - height],
-                        [height, support_to],
-                        [0, support_to]
+                        [-width/2, support_from],
+                        [ width/2, support_from],
+                        [ width/2, support_to],
+                        [-width/2, support_to]
                     ]);
                 }
             }
-            linear_extrude(0.4) {
-                polygon([
-                    [-width/2, support_from],
-                    [ width/2, support_from],
-                    [ width/2, support_to],
-                    [-width/2, support_to]
-                ]);
+            
+            module ThickBeam() {
+                translate([0,support_from -1]) {
+                    rotate(180, [1, 0, 0])
+                    HBarProfile(
+                        length    = [2 * support_from, support_from - support_to -1],
+                        width     = 3,
+                        height    = [4,4,2.5],
+                        thickness = 0.4,
+                        overhang  = 60);
+                }
             }
         }
         
@@ -157,8 +181,4 @@ module Catwalk(
             }
         }
     }
-    
-    
-    
-    
 }
