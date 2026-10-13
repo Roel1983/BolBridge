@@ -3,6 +3,7 @@ use <../../Parts/TrussOuterWall_Right.scad>
 use <../../Parts/TrussInnerWall_Right.scad>
 use <../../Parts/TrussBottom_Right.scad>
 use <../../Parts/TrussTop_Right.scad>
+use <../../Parts/TrussFence_Right.scad>
 include <Truss_Right.inc>
 
 Truss_Right();
@@ -22,4 +23,5 @@ module Truss_Right() {
     TrussInnerWall_Right_LocRot_Portal() TrussInnerWall_Right();
     TrussBottom_Right_LocRot_Portal()    TrussBottom_Right();
     TrussTop_Right_LocRot_Portal()       TrussTop_Right();
+    TrussFence_Right_LocRot_Portal()     TrussFence_Right();
 }

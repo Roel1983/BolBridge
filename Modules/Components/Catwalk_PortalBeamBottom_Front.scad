@@ -2,6 +2,8 @@ include <../../Config.inc>
 include <ShortbeamBottomFace.inc>
 include <Catwalk.inc>
 
+include <Catwalk_PortalBeamBottom_Front.inc>
+
 Catwalk_PortalBeamBottom_Front();
 
 module Catwalk_PortalBeamBottom_Front() {
@@ -11,8 +13,8 @@ module Catwalk_PortalBeamBottom_Front() {
         beam_from  = -front_tower_inner,
         beam_to    =  front_tower_inner,
         beam_bottom_face_thickness = shortbeam_bottom_face_thickness,
-        catwalk_from_offset = 5,
-        catwalk_to_offset = 10.5,
-        support_count = 5
+        catwalk_from_offset = shortbeam_bottom_front_catwalk_from_offset,
+        catwalk_to_offset = shortbeam_bottom_front_catwalk_to_offset,
+        support_count = shortbeam_bottom_front_support_count
     );
 }

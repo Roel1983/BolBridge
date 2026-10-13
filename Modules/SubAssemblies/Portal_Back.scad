@@ -7,6 +7,7 @@ use <../../Parts/TowerInnerSideWall_BackLeft.scad>
 use <../../Parts/TowerInnerSideWall_BackRight.scad>
 use <../../Parts/PortalBeamTop_Back.scad>
 use <../../Parts/PortalBeamBottom_Back.scad>
+use <../../Parts/PortalFence_Back.scad>
 
 include <InnerTower_BackLeft.inc>
 include <InnerTower_BackRight.inc>
@@ -37,4 +38,5 @@ module Portal_Back() {
     PortalBeamBottom_Back_LocRot_Portal()        PortalBeamBottom_Back();
     TowerRoof_Right_LocRot_Portal()              TowerRoof();
     TowerRoof_Left_LocRot_Portal()               TowerRoof();
+    PortalFence_Back_LocRot_Portal()             PortalFence_Back();
 }
